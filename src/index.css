@@ -1,0 +1,22 @@
+/* Google Font */
+@import url("https://fonts.googleapis.com/css2?family=Urbanist:ital,wght@0,100..900;1,100..900&display=swap");
+body {
+  font-family: "Urbanist", sans-serif;
+}
+
+@import "tailwindcss";
+@plugin "daisyui" {
+  themes: light --default;
+}
+@plugin "daisyui/theme" {
+  name: "light";
+  default: true;
+  --color-primary: #caeb66;
+  --color-secondary: #03373d;
+  --color-base-200: #0b0b0b;
+}
+
+/* Footer Social Icon Css */
+.icon {
+  @apply w-8 h-8 rounded-full  flex justify-center items-center;
+}
