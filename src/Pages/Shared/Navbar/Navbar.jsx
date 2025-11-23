@@ -1,16 +1,24 @@
 import React from "react";
 import Logo from "../../../Components/Logo/Logo";
-import { NavLink } from "react-router";
+import { Link, NavLink } from "react-router";
 import { FaArrowRight } from "react-icons/fa6";
+import useAuth from "../../../Hooks/useAuth";
+import { toast } from "react-toastify";
 
 const Navbar = () => {
+  const { user, signOutUser } = useAuth();
+  const handleSignOut = () => {
+    signOutUser().then(() => {
+      toast.success("Log out successfully");
+    });
+  };
   const links = (
     <>
       <li>
         <NavLink to="">Services</NavLink>
       </li>
       <li>
-        <NavLink to="">Coverage</NavLink>
+        <NavLink to="/coverage">Coverage</NavLink>
       </li>
       <li>
         <NavLink to="">About Us</NavLink>
@@ -59,20 +67,37 @@ const Navbar = () => {
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1">{links}</ul>
       </div>
-      <div className="navbar-end gap-4">
-        <a className="font-bold py-3 px-8 border border-[#dadada] rounded-xl hover:bg-primary cursor-pointer duration-300">
-          Sign In
-        </a>
+      <div className="navbar-end">
+        {user ? (
+          <button
+            onClick={handleSignOut}
+            className="font-bold py-3 px-8 border border-[#dadada] rounded-xl hover:bg-primary cursor-pointer duration-300"
+          >
+            Log Out
+          </button>
+        ) : (
+          <div className="flex items-center gap-4">
+            {" "}
+            <Link
+              to="/login"
+              className="font-bold py-3 px-8 border border-[#dadada] rounded-xl hover:bg-primary cursor-pointer duration-300"
+            >
+              Sign In
+            </Link>
+            <div className="flex items-center gap-0 group">
+              <Link
+                to="/rider"
+                className="font-bold py-3 px-8 border border-primary rounded-xl bg-primary hover:border-[#dadada] hover:bg-transparent cursor-pointer duration-300 "
+              >
+                Be a rider
+              </Link>
 
-        <div className="flex items-center gap-0 group">
-          <a className="font-bold py-3 px-8 border border-primary rounded-xl bg-primary hover:border-[#dadada] hover:bg-transparent cursor-pointer duration-300 ">
-            Sign Up
-          </a>
-
-          <span className="py-3 px-3 rounded-full bg-base-200 text-primary -rotate-45 group-hover:rotate-0 duration-300">
-            <FaArrowRight size={22} />
-          </span>
-        </div>
+              <span className="py-3 px-3 rounded-full bg-base-200 text-primary -rotate-45 group-hover:rotate-0 duration-300">
+                <FaArrowRight size={22} />
+              </span>
+            </div>{" "}
+          </div>
+        )}
       </div>
     </div>
   );
