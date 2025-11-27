@@ -25,7 +25,7 @@ const Coverage = () => {
   };
 
   return (
-    <div className="p-20 bg-white rounded-4xl mt-8">
+    <div className="p-20 bg-white rounded-4xl my-8">
       <div>
         <SharedSectionHeader
           align="left"

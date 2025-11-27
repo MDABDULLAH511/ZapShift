@@ -33,3 +33,9 @@ body {
 .carousel .control-next.control-arrow {
   @apply top-auto! bottom-5! right-[5%]!;
 }
+
+
+/* Form Label Scc for Send A parcel page form */
+.label2 {
+  @apply text-black text-[15px] mt-5;
+}
