@@ -13,7 +13,7 @@ body {
   default: true;
   --color-primary: #caeb66;
   --color-secondary: #03373d;
-  --color-base-200: #0b0b0b;
+  --color-base: #0b0b0b;
 }
 
 /* Footer Social Icon Css */
@@ -33,7 +33,6 @@ body {
 .carousel .control-next.control-arrow {
   @apply top-auto! bottom-5! right-[5%]!;
 }
-
 
 /* Form Label Scc for Send A parcel page form */
 .label2 {

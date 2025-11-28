@@ -32,7 +32,7 @@ const Footer = () => {
     </>
   );
   return (
-    <footer className="footer footer-horizontal footer-center bg-base-200 p-20 rounded-4xl text-[#DADADA]">
+    <footer className="footer footer-horizontal footer-center bg-black p-20 rounded-4xl text-[#DADADA]">
       {/* Footer logo and text */}
       <aside>
         <Logo className={`text-white`}></Logo>
