@@ -2,9 +2,11 @@ import React from "react";
 import { FcGoogle } from "react-icons/fc";
 import useAuth from "../../../Hooks/useAuth";
 import { useLocation, useNavigate } from "react-router";
+import useAxiosSecure from "../../../Hooks/useAxiosSecure";
 
 const SocialLogin = () => {
   const { setUser, signUpWithGoogle } = useAuth();
+  const axiosSecure = useAxiosSecure();
 
   const location = useLocation();
   const navigate = useNavigate();
@@ -14,7 +16,22 @@ const SocialLogin = () => {
       .then((result) => {
         const user = result.user;
         setUser(user);
-        navigate(location.state || "/");
+
+        //Create user
+        const userInfo = {
+          email: result.user.email,
+          displayName: result.user.displayName,
+          photoURL: result.user.photoURL,
+        };
+        axiosSecure
+          .post("/users", userInfo)
+          .then((res) => {
+            console.log("User data has been stored in the database", res.data);
+            navigate(location.state || "/");
+          })
+          .catch((err) => {
+            console.log(err);
+          });
       })
       .catch((error) => {
         console.log(error);

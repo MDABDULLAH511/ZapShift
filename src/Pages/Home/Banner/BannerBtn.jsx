@@ -1,5 +1,6 @@
 import React from "react";
 import { FaArrowRight } from "react-icons/fa6";
+import { Link } from "react-router";
 
 const BannerBtn = ({ className }) => {
   return (
@@ -14,9 +15,12 @@ const BannerBtn = ({ className }) => {
         </span>
       </div>
 
-      <a className="font-bold py-3 px-8 border-2 border-[#dadada] rounded-xl hover:bg-primary cursor-pointer duration-300">
-        Be A Rider{" "}
-      </a>
+      <Link
+        to="/rider"
+        className="font-bold py-3 px-8 border-2 border-[#dadada] rounded-xl hover:bg-primary cursor-pointer duration-300"
+      >
+        Be A Rider
+      </Link>
     </div>
   );
 };
