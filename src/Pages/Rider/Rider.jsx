@@ -1,7 +1,7 @@
 import React from "react";
 import riderImage from "../../assets/agent-pending.png";
 import { useForm, useWatch } from "react-hook-form";
-import useAuth from "../../Hooks/useAuth";
+import useAuth from "../../Hooks/UseAuth";
 import useAxiosSecure from "../../Hooks/useAxiosSecure";
 import { useLoaderData } from "react-router";
 import { toast } from "react-toastify";

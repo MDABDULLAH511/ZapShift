@@ -2,7 +2,7 @@ import React from "react";
 import Logo from "../../../Components/Logo/Logo";
 import { Link, NavLink } from "react-router";
 import { FaArrowRight } from "react-icons/fa6";
-import useAuth from "../../../Hooks/useAuth";
+import useAuth from "../../../Hooks/UseAuth";
 import { toast } from "react-toastify";
 
 const Navbar = () => {
@@ -26,17 +26,20 @@ const Navbar = () => {
       <li>
         <NavLink to="/rider">Be a Rider</NavLink>
       </li>
-      <li>
-        <NavLink to="/coverage">Coverage</NavLink>
-      </li>
 
       {user && (
         <>
           <li>
             <NavLink to="/dashboard/my-parcels">My Parcels</NavLink>
           </li>
+          <li>
+            <NavLink to="/dashboard">Dashboard</NavLink>
+          </li>
         </>
       )}
+      <li>
+        <NavLink to="/coverage">Coverage</NavLink>
+      </li>
     </>
   );
   return (

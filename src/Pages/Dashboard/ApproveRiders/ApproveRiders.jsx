@@ -1,13 +1,13 @@
 import { useQuery } from "@tanstack/react-query";
-import React from "react";
 import useAxiosSecure from "../../../Hooks/useAxiosSecure";
-import { FaUserCheck } from "react-icons/fa";
+import { FaEye, FaUserCheck } from "react-icons/fa";
 import { IoPersonRemoveSharp } from "react-icons/io5";
 import { FaTrash } from "react-icons/fa6";
 import Swal from "sweetalert2";
 
 const ApproveRiders = () => {
   const axiosSecure = useAxiosSecure();
+
   const { refetch, data: riders = [] } = useQuery({
     queryKey: ["riders", "pending"],
     queryFn: async () => {
@@ -35,7 +35,6 @@ const ApproveRiders = () => {
   // Rider approved status
   const handleApproval = (rider) => {
     updateRiderStatus(rider, "Approved");
-    console.log("rider", rider);
   };
 
   const handleRejection = (rider) => {
@@ -56,7 +55,8 @@ const ApproveRiders = () => {
               <th>Name</th>
               <th>Email</th>
               <th>License Number</th>
-              <th>Status </th>
+              <th>Application Status </th>
+              <th>Work Status </th>
               <th>Actions </th>
             </tr>
           </thead>
@@ -83,7 +83,11 @@ const ApproveRiders = () => {
                     </p>
                   }
                 </td>
+                <td>{rider.workStatus}</td>
                 <td>
+                  <button className="btn">
+                    <FaEye />
+                  </button>
                   <button onClick={() => handleApproval(rider)} className="btn">
                     <FaUserCheck />
                   </button>

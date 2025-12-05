@@ -1,7 +1,7 @@
 import React from "react";
 import { useForm } from "react-hook-form";
 import { Link, Navigate, useLocation, useNavigate } from "react-router";
-import useAuth from "../../../Hooks/useAuth";
+import useAuth from "../../../Hooks/UseAuth";
 import SocialLogin from "../SocialLogin/SocialLogin";
 import axios from "axios";
 import useAxiosSecure from "../../../Hooks/useAxiosSecure";

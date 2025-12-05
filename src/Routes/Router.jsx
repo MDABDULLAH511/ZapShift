@@ -15,6 +15,14 @@ import PaymentSuccess from "../Pages/Dashboard/Payment/PaymentSuccess";
 import paymentCancelled from "../Pages/Dashboard/Payment/paymentCancelled";
 import PaymentHistory from "../Pages/Dashboard/PaymentHistory/PaymentHistory";
 import ApproveRiders from "../Pages/Dashboard/ApproveRiders/ApproveRiders";
+import UsersManagement from "../Pages/Dashboard/UsersManagement";
+import AdminRoute from "./AdminRoute";
+import AssignRiders from "../Pages/Dashboard/AssignRiders/AssignRiders";
+import RiderRoute from "./RiderRoute";
+import AssignedDeliveries from "../Pages/Dashboard/AssignedDeliveries/AssignedDeliveries";
+import CompletedDeliveries from "../Pages/Dashboard/CompletedDeliveries/CompletedDeliveries";
+import ParcelTrack from "../Pages/ParcelTrack/ParcelTrack";
+import DashboardHome from "../Pages/Dashboard/DashboardHome/DashboardHome";
 
 const router = createBrowserRouter([
   {
@@ -49,9 +57,16 @@ const router = createBrowserRouter([
         ),
         loader: () => fetch("/serviceCenter.json").then((res) => res.json()),
       },
+
+      {
+        path: "parcelTrack/:trackingId",
+        Component: ParcelTrack,
+      },
     ],
   },
 
+  //==============================================================================//
+  // Auth Layout Route
   {
     path: "/",
     Component: AuthLayout,
@@ -67,6 +82,8 @@ const router = createBrowserRouter([
     ],
   },
 
+  //==============================================================================//
+  // Dashboard Layout Route
   {
     path: "dashboard",
     element: (
@@ -75,6 +92,10 @@ const router = createBrowserRouter([
       </PrivateRoutes>
     ),
     children: [
+      {
+        index: true,
+        Component: DashboardHome,
+      },
       {
         path: "my-parcels",
         Component: MyParcels,
@@ -95,9 +116,51 @@ const router = createBrowserRouter([
         path: "payment-history",
         Component: PaymentHistory,
       },
+
+      //==============================================================================//
+      // Rider Related Route
+      {
+        path: "assigned-deliveries",
+        element: (
+          <RiderRoute>
+            <AssignedDeliveries />
+          </RiderRoute>
+        ),
+      },
+      {
+        path: "completed-deliveries",
+        element: (
+          <RiderRoute>
+            <CompletedDeliveries />
+          </RiderRoute>
+        ),
+      },
+
+      //==============================================================================//
+      //Admin related Route
       {
         path: "approve-riders",
-        Component: ApproveRiders,
+        element: (
+          <AdminRoute>
+            <ApproveRiders />
+          </AdminRoute>
+        ),
+      },
+      {
+        path: "users-management",
+        element: (
+          <AdminRoute>
+            <UsersManagement />
+          </AdminRoute>
+        ),
+      },
+      {
+        path: "assign-riders",
+        element: (
+          <AdminRoute>
+            <AssignRiders />
+          </AdminRoute>
+        ),
       },
     ],
   },

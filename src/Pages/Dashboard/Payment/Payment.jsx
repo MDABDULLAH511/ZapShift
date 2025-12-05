@@ -26,6 +26,7 @@ const Payment = () => {
       parcelName: parcel.parcelName,
       senderEmail: parcel.senderEmail,
       parcelId: parcel._id,
+      trackingId: parcel.trackingId,
     };
 
     const res = await axiosSecure.post("/create-checkout-session", paymentInfo);

@@ -94,7 +94,7 @@ const Coverage = () => {
                   </Popup>
                 </Marker>
               ))}
-            </MapContainer>
+            </MapContainer>   
           </div>
         </div>
       </div>

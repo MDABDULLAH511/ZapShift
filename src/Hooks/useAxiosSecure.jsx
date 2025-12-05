@@ -1,10 +1,10 @@
 import axios from "axios";
 import React, { useEffect } from "react";
-import useAuth from "./useAuth";
+import useAuth from "./UseAuth";
 import { useNavigate } from "react-router";
 
 const axiosSecure = axios.create({
-  baseURL: `http://localhost:3000`,
+  baseURL: `https://zap-shift-server-mocha-eight.vercel.app`,
 });
 
 const useAxiosSecure = () => {

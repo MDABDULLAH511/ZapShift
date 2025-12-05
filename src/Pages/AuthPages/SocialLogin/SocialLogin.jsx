@@ -1,6 +1,6 @@
 import React from "react";
 import { FcGoogle } from "react-icons/fc";
-import useAuth from "../../../Hooks/useAuth";
+import useAuth from "../../../Hooks/UseAuth";
 import { useLocation, useNavigate } from "react-router";
 import useAxiosSecure from "../../../Hooks/useAxiosSecure";
 

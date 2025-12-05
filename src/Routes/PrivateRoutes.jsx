@@ -1,5 +1,5 @@
 import React from "react";
-import useAuth from "../Hooks/useAuth";
+import useAuth from "../Hooks/UseAuth";
 import LoadingSipper from "../Components/LoadingSpinner/LoadingSipper";
 import { Navigate, useLocation } from "react-router";
 

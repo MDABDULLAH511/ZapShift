@@ -1,6 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
 import React from "react";
-import useAuth from "../../../Hooks/useAuth";
+import useAuth from "../../../Hooks/UseAuth";
 import useAxiosSecure from "../../../Hooks/useAxiosSecure";
 
 const PaymentHistory = () => {
@@ -30,6 +30,7 @@ const PaymentHistory = () => {
               <th>Amount</th>
               <th>Paid At</th>
               <th>transaction Id</th>
+              <th>Tracking Id</th>
             </tr>
           </thead>
           <tbody>
@@ -42,6 +43,7 @@ const PaymentHistory = () => {
                 <td>{payment.amount}</td>
                 <td>{payment.paidAt}</td>
                 <td>{payment.transactionId}</td>
+                <td>{payment.trackingId}</td>
                 <td>Blue</td>
               </tr>
             ))}

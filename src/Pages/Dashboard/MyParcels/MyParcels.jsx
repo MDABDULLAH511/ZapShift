@@ -1,5 +1,5 @@
 import React from "react";
-import useAuth from "../../../Hooks/useAuth";
+import useAuth from "../../../Hooks/UseAuth";
 import { useQuery } from "@tanstack/react-query";
 import useAxiosSecure from "../../../Hooks/useAxiosSecure";
 import { FiEdit } from "react-icons/fi";
@@ -63,7 +63,8 @@ const MyParcels = () => {
               <th>Name</th>
               <th>Cost</th>
               <th>Payment </th>
-              <th>Delivery Status</th>
+              <th>Tracking Id </th>
+              <th>delivery Status</th>
               <th>Actions</th>
             </tr>
           </thead>
@@ -84,7 +85,12 @@ const MyParcels = () => {
                     </Link>
                   )}
                 </td>
-                <td>{parcel.delivaryStatus}</td>
+                <td>
+                  <Link to={`/parcelTrack/${parcel.trackingId}`}>
+                    {parcel.trackingId}
+                  </Link>
+                </td>
+                <td>{parcel.deliveryStatus}</td>
                 <td>
                   <button className="btn btn-square hover:bg-primary">
                     <FiEdit />
